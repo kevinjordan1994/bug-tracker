@@ -1,5 +1,8 @@
 .bug-list {
-  width: 50vw;
+  max-width: 50%;
   background-color: #395b64;
   padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }

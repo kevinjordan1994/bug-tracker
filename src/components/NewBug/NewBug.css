@@ -1,0 +1,15 @@
+.new-bug {
+  width: 50vw;
+  color: #fff;
+}
+
+.new-bug-form {
+  background-color: #2c3333;
+  margin: 1rem;
+  font-size: 1.25rem;
+}
+
+.user-field {
+  display: flex;
+  flex-direction: column;
+}
