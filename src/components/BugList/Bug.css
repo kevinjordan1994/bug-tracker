@@ -55,18 +55,7 @@
   margin-right: 0.5rem;
 }
 
-.delete-bug {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #2c3333;
-  color: #a5c9ca;
-  cursor: pointer;
-  border: solid;
-  border-color: #a5c9ca;
-}
-
-.delete-bug:hover {
-  font-weight: 700;
+.status {
   background-color: #a5c9ca;
-  color: #2c3333;
+  font-weight: 700;
 }

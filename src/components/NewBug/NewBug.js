@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./NewBug.css";
 import "../UI/Card.css";
+import "../UI/Button.css";
 
 function NewBug(props) {
   const teamMembers = ["Kevin", "Josh", "Nick"];
@@ -36,7 +37,6 @@ function NewBug(props) {
       description: currentDescription,
     };
     props.onSubmitNewBug(newBug);
-    console.log(newBug);
   };
 
   return (
@@ -82,8 +82,8 @@ function NewBug(props) {
             ></textarea>
           </div>
           <div className="user-field">
-            <button className="add-bug-btn" type="submit">
-              Add Bug
+            <button className="add-bug-btn button" type="submit">
+              ADD BUG
             </button>
           </div>
         </form>

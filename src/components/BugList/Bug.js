@@ -1,5 +1,6 @@
 import "./Bug.css";
 import "../UI/Card.css";
+import "../UI/Button.css";
 
 function Bug(props) {
   return (
@@ -27,7 +28,7 @@ function Bug(props) {
             <option value="Resolved">Resolved</option>
           </select>
         </div>
-        <button className="delete-bug">REMOVE</button>
+        <button className="button">REMOVE</button>
       </form>
     </div>
   );
