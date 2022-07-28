@@ -3,6 +3,12 @@ import "../UI/Card.css";
 import "../UI/Button.css";
 
 function Bug(props) {
+  const removeBug = (event) => {
+    event.preventDefault();
+    const id = event.target.id;
+    props.onRemoveBug(id);
+  };
+
   return (
     <div className="card bug">
       <div className="top">
@@ -28,7 +34,9 @@ function Bug(props) {
             <option value="Resolved">Resolved</option>
           </select>
         </div>
-        <button className="button">REMOVE</button>
+        <button className="button" onClick={removeBug} id={props.bug.key}>
+          REMOVE
+        </button>
       </form>
     </div>
   );

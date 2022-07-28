@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./NewBug.css";
 import "../UI/Card.css";
 import "../UI/Button.css";
+
+const checkValidLength = (str, length) => {
+  return str.length >= length;
+};
 
 function NewBug(props) {
   const teamMembers = ["Kevin", "Josh", "Nick"];
@@ -27,16 +31,25 @@ function NewBug(props) {
     setNewDescription(event.target.value);
   };
 
+  const resetInputs = () => {
+    setNewName("New Bug");
+    setNewPriority("LOW");
+    setNewMember(teamMembers[0]);
+    setNewDescription("");
+  };
+
   const addBug = (event) => {
     event.preventDefault();
+    if (!checkValidLength(currentDescription, 10)) return;
     const newBug = {
-      key: Math.random() * 100,
+      key: Date.now(),
       name: currentName,
       priority: currentPriority,
       assignedTo: currentMember,
       description: currentDescription,
     };
     props.onSubmitNewBug(newBug);
+    resetInputs();
   };
 
   return (
@@ -51,6 +64,7 @@ function NewBug(props) {
               type="text"
               placeholder="New Bug"
               onChange={nameChangeHandler}
+              value={currentName}
             ></input>
           </div>
           <div className="new-priority user-field">
@@ -58,6 +72,7 @@ function NewBug(props) {
             <select
               className="selected-priority"
               onChange={priorityChangeHandler}
+              value={currentPriority}
             >
               <option>LOW</option>
               <option>MEDIUM</option>
@@ -66,7 +81,11 @@ function NewBug(props) {
           </div>
           <div className="assign-to user-field">
             <label>Assign: </label>
-            <select className="selected-member" onChange={memberChangeHandler}>
+            <select
+              className="selected-member"
+              onChange={memberChangeHandler}
+              value={currentMember}
+            >
               {teamMembers.map((member) => (
                 <option key={member}>{member}</option>
               ))}
@@ -79,6 +98,7 @@ function NewBug(props) {
               rows="10"
               className="selected-description"
               onChange={descriptionChangeHandler}
+              value={currentDescription}
             ></textarea>
           </div>
           <div className="user-field">
