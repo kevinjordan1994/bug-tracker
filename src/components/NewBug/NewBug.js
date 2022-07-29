@@ -40,7 +40,10 @@ function NewBug(props) {
 
   const addBug = (event) => {
     event.preventDefault();
-    if (!checkValidLength(currentDescription, 10)) return;
+    if (!checkValidLength(currentDescription, 10)) {
+      props.onLengthError();
+      return;
+    }
     const newBug = {
       key: Date.now().toString(),
       name: currentName,
