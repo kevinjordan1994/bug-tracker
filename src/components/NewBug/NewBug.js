@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./NewBug.css";
 import "../UI/Card.css";
 import "../UI/Button.css";
@@ -42,7 +42,7 @@ function NewBug(props) {
     event.preventDefault();
     if (!checkValidLength(currentDescription, 10)) return;
     const newBug = {
-      key: Date.now(),
+      key: Date.now().toString(),
       name: currentName,
       priority: currentPriority,
       assignedTo: currentMember,

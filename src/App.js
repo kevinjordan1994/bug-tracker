@@ -25,7 +25,6 @@ function App() {
   const [currentBugs, setNewBugs] = useState(bugs);
 
   const removeBug = (id) => {
-    //TODO: FIND OUT WHY I CAN'T REMOVE NEW BUGS
     const selectedBug = currentBugs.find((bug) => bug.key === id);
     setNewBugs((prev) => prev.filter((bug) => bug !== selectedBug));
   };
